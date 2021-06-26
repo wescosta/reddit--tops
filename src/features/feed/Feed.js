@@ -7,15 +7,15 @@ import { fetchTopFeed } from './feedSlice';
 export default function Feed() {
   const dispatch = useDispatch();
   const feed = useSelector(state => state.feed);
-  const {count, limit} = feed;
+  const { count, limit } = feed;
 
   useEffect(() => {
-    dispatch(fetchTopFeed({count, limit}));
+    dispatch(fetchTopFeed({ count, limit }));
   }, [count, limit, dispatch]);
 
   return feed.data.map(
-    post => (
-      <Post post={post} />
+    ({ data }) => (
+      <Post key={data.id} post={data} />
     )
   );
 }
