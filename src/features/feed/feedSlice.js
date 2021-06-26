@@ -10,8 +10,8 @@ const initialState = {
 
 export const fetchTopFeed = createAsyncThunk(
   'feed/fetch/top',
-  async ({count, limit}) => {
-    const response = await fetchFeed({count, limit});
+  async ({ count, limit }) => {
+    const response = await fetchFeed({ count, limit });
     return response.data;
   }
 );
@@ -26,8 +26,11 @@ export const feedSlice = createSlice({
       })
       .addCase(fetchTopFeed.fulfilled, (state, action) => {
         state.status = 'idle';
-        state.data.concat(action.payload);
-      });
+        state.data = [
+          ...state.data,
+          ...action.payload
+        ];
+      })
   },
 });
 
