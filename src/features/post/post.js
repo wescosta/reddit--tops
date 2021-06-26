@@ -5,8 +5,8 @@ import CardHeader from '@material-ui/core/CardHeader';
 import CardMedia from '@material-ui/core/CardMedia';
 import Avatar from '@material-ui/core/Avatar';
 
-export default function Post(props) {
-  const { post } = this.props;
+ const Post = (props) => {
+  const { post } = props;
 
   return (
     <Card>
@@ -24,3 +24,5 @@ export default function Post(props) {
     </Card>
   );
 }
+
+export default React.memo(Post);
