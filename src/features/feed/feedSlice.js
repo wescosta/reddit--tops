@@ -2,8 +2,6 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { fetchFeed } from './feedAPI';
 
 const initialState = {
-  count: 0,
-  limit: 10,
   data: [],
   error: {},
   status: 'idle',
@@ -31,7 +29,6 @@ export const feedSlice = createSlice({
           ...state.data,
           ...action.payload
         ];
-        state.count = state.data.length;
       })
       .addCase(fetchTopFeed.rejected, (state, action) => {
         state.status = 'error';
