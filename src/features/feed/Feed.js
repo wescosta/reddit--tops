@@ -5,12 +5,13 @@ import Post from '../post/post';
 import { fetchTopFeed } from './feedSlice';
 
 export default function Feed() {
-  const feed = useSelector(state => state.feed);
   const dispatch = useDispatch();
+  const feed = useSelector(state => state.feed);
+  const {count, limit} = feed;
 
   useEffect(() => {
-    dispatch(fetchTopFeed());
-  }, [dispatch]);
+    dispatch(fetchTopFeed({count, limit}));
+  }, [count, limit, dispatch]);
 
   return feed.data.map(
     post => (

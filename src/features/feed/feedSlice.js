@@ -31,6 +31,7 @@ export const feedSlice = createSlice({
           ...state.data,
           ...action.payload
         ];
+        state.count = state.data.length;
       })
       .addCase(fetchTopFeed.rejected, (state, action) => {
         state.status = 'error';
