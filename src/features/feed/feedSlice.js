@@ -5,6 +5,7 @@ const initialState = {
   count: 0,
   limit: 10,
   data: [],
+  error: {},
   status: 'idle',
 };
 
@@ -30,6 +31,12 @@ export const feedSlice = createSlice({
           ...state.data,
           ...action.payload
         ];
+      })
+      .addCase(fetchTopFeed.rejected, (state, action) => {
+        state.status = 'error';
+        state.error = action.error;
+
+        throw action.error;
       })
   },
 });
