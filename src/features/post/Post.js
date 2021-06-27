@@ -10,6 +10,7 @@ import Typography from '@material-ui/core/Typography';
 const Post = (props) => {
   const { post } = props;
   const avatarUrl = post.all_awardings[0] && post.all_awardings[0].icon_url;
+  const avatarDescription = post.all_awardings[0] && post.all_awardings[0].description;
 
   return (
     <Card>
@@ -17,6 +18,11 @@ const Post = (props) => {
         title={post.author}
         avatar={
           <Avatar atl={post.author} src={avatarUrl} />
+        }
+        subheader={
+          <Typography variant="body2" color="textSecondary" component="p">
+            {avatarDescription}
+          </Typography>
         }
       />
       <CardMedia
