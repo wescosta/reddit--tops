@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactHlsPlayer from 'react-hls-player';
+import Moment from 'react-moment';
 
 import Avatar from '@material-ui/core/Avatar';
 import Card from '@material-ui/core/Card';
@@ -23,6 +24,8 @@ const Post = (props) => {
         subheader={
           <Typography variant="body2" color="textSecondary" component="p">
             {avatarDescription}
+            <br />
+            <Moment fromNow>{post.created_utc * 1000}</Moment>
           </Typography>
         }
       />
