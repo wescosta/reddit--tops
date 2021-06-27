@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactHlsPlayer from 'react-hls-player';
 
 import Avatar from '@material-ui/core/Avatar';
 import Card from '@material-ui/core/Card';
@@ -27,14 +28,15 @@ const Post = (props) => {
       />
       {
         post.is_video ?
-          <CardMedia
+          <ReactHlsPlayer
             controls
+            width="100%"
             preload="true"
-            component="video"
-            src={post.secure_media.reddit_video.fallback_url}
+            src={post.media.reddit_video.hls_url}
           />
           : <CardMedia
             alt=""
+            width="100%"
             component="img"
             src={post.url_overridden_by_dest}
           />
