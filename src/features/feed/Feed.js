@@ -1,7 +1,7 @@
 import { Button, Container, List, ListItem } from '@material-ui/core';
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import Post from '../post/post';
+import Post from '../post/Post';
 
 import { fetchTopFeed } from './feedSlice';
 
@@ -18,8 +18,8 @@ export default function Feed() {
 
   const posts = feed.data.map(
     ({ data }) => (
-      <ListItem>
-        <Post key={data.id} post={data} />
+      <ListItem key={data.id}>
+        <Post post={data} />
       </ListItem>
     )
   );
@@ -29,8 +29,8 @@ export default function Feed() {
       <List>
         {posts}
       </List>
-      
-      <Button fullWidth="true" onClick={() => setCount(count + limit)}>
+
+      <Button fullWidth onClick={() => setCount(count + limit)}>
         Load more
       </Button>
     </Container>
