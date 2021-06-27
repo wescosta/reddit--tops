@@ -7,14 +7,14 @@ import CardMedia from '@material-ui/core/CardMedia';
 
 const Post = (props) => {
   const { post } = props;
+  const avatarUrl = post.all_awardings[0] && post.all_awardings[0].icon_url;
 
   return (
     <Card>
       <CardHeader
-        title={post.title}
-        subheader={post.description}
+        title={post.author}
         avatar={
-          <Avatar atl={post.name} src={post.static_icon_url} />
+          <Avatar atl={post.author} src={avatarUrl} />
         }
       />
       <CardMedia
