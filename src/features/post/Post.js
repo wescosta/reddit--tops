@@ -5,7 +5,7 @@ import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
 import CardMedia from '@material-ui/core/CardMedia';
 
- const Post = (props) => {
+const Post = (props) => {
   const { post } = props;
 
   return (
