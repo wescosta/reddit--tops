@@ -4,6 +4,8 @@ import Avatar from '@material-ui/core/Avatar';
 import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
 import CardMedia from '@material-ui/core/CardMedia';
+import CardContent from '@material-ui/core/CardContent';
+import Typography from '@material-ui/core/Typography';
 
 const Post = (props) => {
   const { post } = props;
@@ -22,6 +24,11 @@ const Post = (props) => {
         component="img"
         src={post.url_overridden_by_dest}
       />
+      <CardContent>
+        <Typography gutterBottom variant="h5" component="h2">
+          {post.title}
+        </Typography>
+      </CardContent>
     </Card>
   );
 }
