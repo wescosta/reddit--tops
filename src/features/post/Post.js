@@ -18,8 +18,9 @@ const Post = (props) => {
         }
       />
       <CardMedia
-        image={post.thumbnail}
-        title={post.description}
+        alt=""
+        component="img"
+        src={post.url_overridden_by_dest}
       />
     </Card>
   );
