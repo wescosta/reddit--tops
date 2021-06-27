@@ -25,11 +25,20 @@ const Post = (props) => {
           </Typography>
         }
       />
-      <CardMedia
-        alt=""
-        component="img"
-        src={post.url_overridden_by_dest}
-      />
+      {
+        post.is_video ?
+          <CardMedia
+            controls
+            preload="true"
+            component="video"
+            src={post.secure_media.reddit_video.fallback_url}
+          />
+          : <CardMedia
+            alt=""
+            component="img"
+            src={post.url_overridden_by_dest}
+          />
+      }
       <CardContent>
         <Typography gutterBottom variant="h5" component="h2">
           {post.title}
